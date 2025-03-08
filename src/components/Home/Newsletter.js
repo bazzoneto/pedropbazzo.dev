@@ -50,16 +50,6 @@ const Newsletter = () => {
             )
           }
         </div>
-        <div className="col-12 col-md-6">
-          <S.ImageContainer>
-            <Image 
-              src={'/assets/icons/studies.png'} 
-              alt="Minha foto de avatar"
-              className="img-fluid img-newsletter"
-              width={479} height={242} 
-            />
-          </S.ImageContainer>
-        </div>
       </div>
      </div>
     </>

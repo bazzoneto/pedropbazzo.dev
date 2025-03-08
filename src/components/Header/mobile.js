@@ -34,7 +34,7 @@ const Header = () => {
     <Navbar bg="none" expand={expand} className="mb-3 align-items-center justify-content-md-between py-3 mb-4">
       <Container>
         <Navbar.Brand href="/" className="d-flex align-items-center col-md-3 mb-md-0 text-dark text-decoration-none">
-          <Image src={'/assets/icons/deploy-de-sexta-coursive.png'} alt="Minha foto de avatar" width={150} height={41} />
+          <Image src={'/assets/icons/deploy-de-sexta-coursive.png'} alt="" width={150} height={41} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`}>
           <S.Hamburger className="hamburger" data-v-dd9d64f0="">
@@ -50,7 +50,7 @@ const Header = () => {
         >
           <Offcanvas.Header closeButton>
             <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-              <Image src={'/assets/icons/deploy-de-sexta-coursive.png'} alt="Minha foto de avatar" width={150} height={41} />
+              <Image src={'/assets/icons/deploy-de-sexta-coursive.png'} alt="" width={150} height={41} />
             </Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>

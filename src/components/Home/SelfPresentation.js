@@ -5,15 +5,6 @@ import * as S from './styled'
 const SelfPresentation = () => (
   <div className="container">
     <div className="row">
-      <div className="col-12 col-md-3">
-        <S.ImageContainer>
-          <Image 
-            src={'/assets/icons/cartoon.png'} 
-            alt="Minha foto de avatar" 
-            width={200} height={140} 
-          />
-        </S.ImageContainer>
-      </div>
       <div className="col-12 col-md-9">
         <S.Hello>Prazer! Me chamo Pedro mas pode me chama de Bjorn.</S.Hello>
         <S.Text>
