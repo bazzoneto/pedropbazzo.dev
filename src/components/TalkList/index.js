@@ -1,40 +1,41 @@
-import { useState } from 'react'
-import InfiniteScroll from 'react-infinite-scroll-component'
-import { NextSeo } from 'next-seo'
+import { useState } from 'react';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { NextSeo } from 'next-seo';
 
-import { BLOG_HOST, BLOG_SUBTITLE, BLOG_TITLE } from 'lib/constants'
-import * as S from './styled'
-import Image from 'next/image'
+import { BLOG_HOST, BLOG_SUBTITLE, BLOG_TITLE } from 'lib/constants';
+import * as S from './styled';
+import Image from 'next/image';
 
 const TalkList = ({ talks }) => {
-  const sortedTalks = talks.sort((talk1, talk2) =>
-    new Date(talk1.date) > new Date(talk2.date) ? -1 : 1
-  )
+  // Filtra apenas os talks válidos (com frontmatter e título)
+  const validTalks = talks.filter(talk => talk?.frontmatter?.title);
 
-  const [count, setCount] = useState({
-    prev: 0,
-    next: 10
-  })
-  const [hasMore, setHasMore] = useState(true)
-  const [current, setCurrent] = useState(
-    sortedTalks.slice(count.prev, count.next)
-  )
+  // Ordena os talks por data (os sem data vão para o final)
+  const sortedTalks = validTalks.sort((talk1, talk2) => {
+    if (!talk1.date) return 1;
+    if (!talk2.date) return -1;
+    return new Date(talk1.date) > new Date(talk2.date) ? -1 : 1;
+  });
+
+  const [count, setCount] = useState({ prev: 0, next: 10 });
+  const [hasMore, setHasMore] = useState(true);
+  const [current, setCurrent] = useState(sortedTalks.slice(count.prev, count.next));
 
   const getMoreData = () => {
     if (current.length === sortedTalks.length) {
-      setHasMore(false)
-      return
+      setHasMore(false);
+      return;
     }
 
     setCurrent(
       current.concat(sortedTalks.slice(count.prev + 10, count.next + 10))
-    )
+    );
 
     setCount(prevState => ({
       prev: prevState.prev + 10,
       next: prevState.next + 10
-    }))
-  }
+    }));
+  };
 
   return (
     <>
@@ -63,30 +64,34 @@ const TalkList = ({ talks }) => {
               {current.map((talk, i) => (
                 <a 
                   key={i} 
-                  href={talk.frontmatter.link} 
-                  target="_blank" rel="noreferrer"
+                  href={talk.frontmatter.link || '#'} 
+                  target="_blank" 
+                  rel="noreferrer"
                   className="list-group-item list-group-item-action" 
                   aria-current="true"
                 >
                   <div className="d-flex">
                     <div className="d-flex">
                       <S.ImageContainer>
-                        <Image 
-                          src={talk.frontmatter.image} 
-                          className="img-fluid"
-                          width={320} height={180}
-                          alt={talk.frontmatter.title}
-                        />
+                        {talk.frontmatter.image && (
+                          <Image 
+                            src={talk.frontmatter.image} 
+                            className="img-fluid"
+                            width={320} 
+                            height={180}
+                            alt={talk.frontmatter.title}
+                          />
+                        )}
                       </S.ImageContainer>
                     </div>
                     <div className="w-100 ps-2">
                       <div className="d-flex w-100 justify-content-between">
                         <S.Title className="mb-1">{talk.frontmatter.title}</S.Title>
-                        <small>{talk.frontmatter.date}</small>
+                        <small>{talk.frontmatter.date || 'Data não disponível'}</small>
                       </div>
                       <S.Description className="mb-1">{talk.frontmatter.description}</S.Description>
                       <S.TagContainer>
-                        {talk.frontmatter.tags.map((tag, i) => (
+                        {(talk.frontmatter.tags || []).map((tag, i) => (
                           <S.Tag key={i} className="badge text-bg-primary">{tag}</S.Tag>
                         ))}
                       </S.TagContainer>
@@ -99,7 +104,7 @@ const TalkList = ({ talks }) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default TalkList
+export default TalkList;
