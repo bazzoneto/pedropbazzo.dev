@@ -1,140 +1,46 @@
----
-layout: post
-title: "Java 15 se torna GA"
-date: 2020-09-16 13:14:42
-image: '/assets/img/java-15-goes-ga/cover.png'
-description: 'Além das preview features, conhecidas das versões anteriores, foi introduzido no Java 15 os conceitos de sealed classes e Local interfaces & enums.'
-main-class: 'java'
-color: '#D6BA32'
-tags:
-- Java
-categories:
-twitter_text: 'Além das preview features, conhecidas das versões anteriores, foi introduzido no Java 15 os conceitos de sealed classes e Local interfaces & enums.'
-introduction: 'Além das preview features, conhecidas das versões anteriores, foi introduzido no Java 15 os conceitos de sealed classes e Local interfaces & enums.'
----
+# Java 17: Novidades e Recursos
 
-## 1. Getting Started
+Java 17, lançado em setembro de 2021, é uma versão LTS (Long-Term Support), o que significa que terá suporte de longo prazo, tornando-se uma escolha ideal para aplicações empresariais e de produção. Esta versão traz melhorias significativas em desempenho, segurança e manutenção do código. Aqui estão algumas das principais novidades:
 
-Para começar vamos instalar a *JDK* 15. Eu utilizo o [sdkman](https://sdkman.io/) para gerenciar todas as *JDKs* do meu *workspace*, mas se achar mais conveniente  baixar direto da OpenJDK, [este é o link](https://jdk.java.net/15/).
+## 1. **Novos Recursos e Melhorias**
 
-Utilizando o *sdkman*, primeiro listamos as *JDKs* disponíveis:
+### 1.1 **JEP 356: Pseudo-Random Number Generators**
+Melhora a implementação dos geradores de números pseudoaleatórios, tornando-os mais flexíveis e fáceis de usar. Introduz a nova API `RandomGenerator` para facilitar a escolha do gerador mais adequado.
 
-```bash
-sdk list java
-```
+### 1.2 **JEP 382: Depreciação do Applet API**
+A API de Applets foi oficialmente depreciada e será removida em futuras versões, refletindo a obsolescência dessa tecnologia nos navegadores modernos.
 
-![sdk list java result](https://dev-to-uploads.s3.amazonaws.com/i/ii8mrbjjuebkg1z9r6ha.png)
+### 1.3 **JEP 391: Windows/AArch64 Port**
+Suporte para a arquitetura Windows/AArch64, permitindo que o Java 17 rode de forma otimizada em dispositivos ARM rodando Windows, como os novos processadores da linha Surface.
 
-Em seguida, basta executar o comando com o *identifier* encontrado:
+### 1.4 **JEP 403: Strongly Encapsulate JDK Internals**
+Os pacotes internos do JDK agora são fortemente encapsulados por padrão, reforçando a segurança e incentivando o uso de APIs públicas.
 
-```shell
-sdk install java 15.ea.36-open
-```
-
-Pronto! A JDK está instalada e pronta para ser usada. Agora basta configurar o IntelliJ:
-
-![IntelliJ config](https://dev-to-uploads.s3.amazonaws.com/i/jw9b6f20zznlugnvh02t.png)
-
-## 2. *Sealed Classes & Interfaces (Preview)*
-
-Essa funcionalidade permite assumir o controle da hierarquia de classes e interfaces através da keyword `sealed` e `permits`. Vamos ao exemplo:
+### 1.5 **JEP 406: Pattern Matching for Switch (Preview)**
+Expande o uso de "pattern matching" no `switch`, tornando a sintaxe mais limpa e menos propensa a erros:
 
 ```java
-sealed public interface Shape permits Circle, Square, Rectangle, Diamond { }
-```
-
-No código acima, definimos a interface `Shape` e marcamos como `sealed`. Classes *sealed* demandam a declaração da *keyword* `permits` para dizer ao compilador quais as classes ou interfaces poderão estender ou implementar `Shape`. Existe uma exceção a regra somente para casos onde as implementações estão no mesmo arquivo que a *sealed class*. Quando isto ocorre, podemos omitir a *keyword* `permits` da declaração da *sealed class*.
-
-Classes cuja classe pai é *sealed* demandam declarar sua abrangência de hierarquia entre: `final`, `non-sealed` ou `sealed`.
-
-Normalmente, as **classes** filhas serão *final* para evitar que possam ser herdadas. Ao tentar herdar, observará um erro de compilação.
-
-```java
-final class Square implements Shape { }
-
-class TimesSquare extends Square { } // Compilador fica chateado, pois Square é final.
-```
-
-Também é possível substituir o uso da *final class* por `record`, pois são classes imutáveis e, por baixo dos panos, o compilador gera um *final class*.
-
-```java
-record Square() implements Shape { }
-```
-
-As estruturas filhas declaradas como `non-sealed` expandem a hierarquia, possibilitando-as de serem estendidas ou implementadas por qualquer outra classe ou interface.
-
-```java
-non-sealed interface Diamond extends Shape { }
-
-non-sealed class Circle implements Shape { }
-
-class BigCircle extends Circle { }
-
-interface ColoredDiamond extends Diamond {}
-```
-
-> Deve-se atentar que *non-sealed classes* podem quebrar a coesão de seus modelos, pois voltam a expor tudo o que tentou proteger com `sealed`.
-
-Por último, e não menos importante, podemos ter *sealed classes* implementando *sealed classes*. Dessa forma, não deixamos tão aberto quanto as `non-sealed` e nem tão engessado quanto as `final`, continuamos restringindo a herança ou composição.
-
-```java
-sealed class Rectangle implements Shape permits CustomRectangle { }
-
-final class CustomRectangle extends Rectangle { }
-```
-
-### 2.1. Type-Test Pattern matching
-
-Com o controle de hierarquia que as *sealed classes* proveem ao compilador, seria possível fazer *type-test-pattern* igual ao que vemos no [*when* do *Kotlin*](https://kotlinlang.org/docs/reference/control-flow.html#when-expression). 
- 
-```java
-public Double getAreaOfShape(final Shape shape) {
-	return switch (shape) {
-		case Circle c -> circleArea(c);
-		case Diamond d -> diamondArea(d);
-		case Rectangle r -> rectangleArea(r);
-		case Square s -> squareArea(s);
-	};
+switch (obj) {
+    case Integer i -> System.out.println("É um inteiro: " + i);
+    case String s -> System.out.println("É uma string: " + s);
+    case null -> System.out.println("É nulo");
+    default -> System.out.println("Tipo desconhecido");
 }
 ```
 
-Atualmente esse código acima **não compila**, pois *type-test-pattern* no *switch-case* não é uma funcionalidade ainda, é apenas uma possibilidade. A razão disso, é por conta do precedente que foi adicionado ao Java 14: *Pattern Matching for instanceof*.
+### 1.6 **JEP 411: Depreciação do Security Manager**
+O Security Manager foi depreciado devido à sua baixa adoção e à existência de abordagens mais modernas para segurança de aplicações Java.
 
-Indo mais além, pelo fato do compilador saber exatamente quem implementa determinada *sealed class*, seria possível omitir o *default* no *switch-case*, pois todas as possibilidades foram declaradas.
+### 1.7 **JEP 415: Context-Specific Deserialization Filters**
+Melhora a segurança da desserialização, permitindo filtros específicos de contexto para evitar vulnerabilidades.
 
-## 3. Local interfaces e enums
+## 2. **Remoção de Recursos**
 
-Com a segunda *preview* de *Records* ([JEP 384](https://openjdk.java.net/jeps/384)) assomado no Java 15, a possibilidade de criar estruturas no escopo local de um método virou realidade. Além das *records*, agora podemos declarar classes, *enums* e interfaces dentro do escopo de métodos também!
+- **Remoção do RMI Activation System (JEP 407)**: O sistema de ativação do RMI foi removido devido à sua baixa utilização.
+- **Remoção do Experimental AOT e JIT Compiler (JEP 410)**: Recursos experimentais relacionados à compilação AOT e JIT foram removidos por falta de adoção.
 
-```java
-  public List<TV> getTop5ExpensiveTV(final List<TV> tvs) {
+## 3. **Conclusão**
 
-    enum Price {EXPENSIVE, CHEAP}
+Java 17 traz melhorias significativas em desempenho, segurança e manutenção, além de reforçar a tendência de modularização e encapsulamento do JDK. Como uma versão LTS, ele se torna a escolha ideal para aplicações corporativas e de longa duração.
 
-    record TVPrice(TV tv, Double amount) { 
-      
-      Price price() {
-        return amount > 4_000 ? Price.EXPENSIVE : Price.CHEAP;
-      }
-    }
-
-    return tvs.stream()
-        .map(tv -> new TVPrice(tv, calculateAmount(tv)))
-        .sorted(Comparator.comparing(TVPrice::price))
-        .map(TVPrice::tv)
-        .limit(5)
-        .collect(Collectors.toList());
-  }
-```
-
-O exemplo acima mostra uma forma de usufruir de estruturas locais. Foi utilizado *local* `record` e `enum` para fazer um filtro em uma lista.
-
-## 5. What’s next?
-
-Existem outras *features* de melhoria de performance e reimplementações de estruturas, não hesite em ler o [*release notes* completo](https://openjdk.java.net/projects/jdk/15/).
-
-## 4. Referências
-
-- [JDK 15](https://openjdk.java.net/projects/jdk/15/)
-- [Java 15 and IntelliJ IDEA](https://blog.jetbrains.com/idea/2020/09/java-15-and-intellij-idea/)
-- [Kotlin docs](https://kotlinlang.org/docs/reference/control-flow.html#when-expression)
+Se você ainda está utilizando versões mais antigas do Java, agora é um excelente momento para considerar a atualização para Java 17!
