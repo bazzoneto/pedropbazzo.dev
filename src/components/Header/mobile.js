@@ -66,16 +66,6 @@ const Header = () => {
                 </li>
               ))}
             </Nav>
-            <Form className="d-flex">
-              <Form.Control
-                type="search"
-                placeholder="Explorar..."
-                className="me-2"
-                aria-label="Search"
-                onChange={(ev) => setData(ev.target.value)}
-                onKeyDown={handleKeyPress}
-              />
-            </Form>
           </Offcanvas.Body>
         </Navbar.Offcanvas>
       </Container>

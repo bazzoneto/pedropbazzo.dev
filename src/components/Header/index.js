@@ -43,17 +43,6 @@ const Header = () => {
             </li>
           ))}
         </ul>
-
-        <form className="col-md-3 d-none d-md-block text-end" role="search">
-          <input 
-            type="search" 
-            className="form-control" 
-            placeholder="Explorar..." 
-            aria-label="Search" 
-            onChange={(ev) => setData(ev.target.value)}
-            onKeyDown={handleKeyPress}
-          />
-        </form>
       </header>
     </div>
   )
