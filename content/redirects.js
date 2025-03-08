@@ -11,9 +11,9 @@ function redirectTo(source, destination, permanent = false) {
 module.exports = [
   // Socials
   redirectTo('/goto/youtube', 'https://www.youtube.com/channel/UCmwV8WOaoVlhokrcqTtF9YA'),
-  redirectTo('/goto/instagram', 'https://www.instagram.com/deploy_desexta/'),
-  redirectTo('/goto/twitch', 'https://www.twitch.tv/stifl0w'),
-  redirectTo('/goto/twitter', 'https://twitter.com/gabrielsuaki'),
+  redirectTo('/goto/instagram', 'https://www.instagram.com/pedropbazzo/'),
+  redirectTo('/goto/twitch', 'https://www.twitch.tv/'),
+  redirectTo('/goto/twitter', 'https://twitter.com/pedropbazzo'),
   // Others...
   redirectTo('/goto/caelum-fj11-java-poo', 'https://www.caelum.com.br/apostila/apostila-java-orientacao-objetos.pdf'),
   redirectTo('/goto/engineering-list', 'https://twitter.com/i/lists/1352291452706058240'),

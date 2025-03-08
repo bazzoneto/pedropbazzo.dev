@@ -1,19 +1,19 @@
-export const BLOG_TITLE = 'Deploy de Sexta'
+export const BLOG_TITLE = 'pedropbazzo'
 
 export const BLOG_SUBTITLE = ''
 
 export const BLOG_DESCRIPTION = [BLOG_TITLE, BLOG_SUBTITLE].join(' | ')
 
-export const BLOG_AUTHOR = 'Gabriel'
+export const BLOG_AUTHOR = 'Pedro'
 
-export const BLOG_AUTHOR_LINK = 'https://twitter.com/GabrielSuaki'
+export const BLOG_AUTHOR_LINK = 'https://twitter.com/pedropbazzo'
 
-export const YOUTUBE_LINK = 'https://www.youtube.com/@deploydesexta/?sub_confirmation=1'
+export const YOUTUBE_LINK = 'https://www.youtube.com'
 
-export const BLOG_URL = 'https://deploydesexta.com.br'
+export const BLOG_URL = 'https://.com.br'
 
-export const BLOG_HOST = 'deploydesexta.com.br'
+export const BLOG_HOST = '.com.br'
 
-export const BLOG_AUTHOR_POSITION = 'Engineer Manager'
+export const BLOG_AUTHOR_POSITION = 'IT Specialist'
 
 export const BLOG_AUTHOR_DESCRIPTION = ''

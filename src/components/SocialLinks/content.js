@@ -3,11 +3,11 @@ import {YOUTUBE_LINK} from 'lib/constants';
 const links = [
   {
     label: 'Github',
-    url: 'https://github.com/deploydesexta'
+    url: 'https://github.com/pedropbazzo'
   },
   {
     label: 'Twitter',
-    url: 'https://twitter.com/GabrielSuaki'
+    url: 'https://twitter.com/pedropbazzo'
   },
   {
     label: 'Youtube',
@@ -15,7 +15,7 @@ const links = [
   },
   {
     label: 'Instagram',
-    url: 'https://www.instagram.com/deploy_desexta'
+    url: 'https://www.instagram.com/pedropbazzo'
   },
 ]
 

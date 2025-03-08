@@ -29,7 +29,7 @@ function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>deploy de sexta</title>
+        <title>pedropbazzo</title>
         <link rel="shortcut icon" href="/favicon.ico" />
         <link
           rel="apple-touch-icon"

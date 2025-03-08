@@ -6,7 +6,7 @@ const SearchPage = () => {
   return (
     <>
       <NextSeo
-        title="Search | Deploy de Sexta"
+        title="Search | Pedro P. Bazzo"
         description="Busque por conteúdo"
       />
       <Search />

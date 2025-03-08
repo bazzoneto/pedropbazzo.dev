@@ -2,8 +2,8 @@ const SEOConfig = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://deploydesexta.com.br',
-    site_name: 'Deploy de Sexta'
+    url: 'https://',
+    site_name: 'pedropbazzo'
   },
   twitter: {
     handle: '@GabrielSuaki',
