@@ -4,7 +4,7 @@ title: "Por trás das cortinas do Mercado Livre na Black Friday"
 date: 2023-12-05 20:00:00
 image: '/assets/img/talks/por-tras-das-cortinas-do-mercado-livre-na-blackfriday.jpg'
 description: 'Nessa talk explicamos a audiência todos os segredos da preparação que fazemos no Mercado Livre para garantir que vamos aguentar a demanda da Black Friday.'
-link: 'https://www.youtube.com/watch?v=nUsfbfgQ18w'
+link: ''
 color: '#D6BA32'
 tags:
 - Full Cycle
