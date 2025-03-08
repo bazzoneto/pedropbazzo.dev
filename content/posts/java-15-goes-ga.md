@@ -1,3 +1,10 @@
+---
+title: "Java 17: Novidades e Recursos"
+date: "2025-03-08"
+tags: ["Java", "Programação"]
+description: "Java 17 traz melhorias significativas em desempenho, segurança e manutenção, além de novos recursos importantes. Conheça os detalhes!"
+---
+
 # Java 17: Novidades e Recursos
 
 Java 17, lançado em setembro de 2021, é uma versão LTS (Long-Term Support), o que significa que terá suporte de longo prazo, tornando-se uma escolha ideal para aplicações empresariais e de produção. Esta versão traz melhorias significativas em desempenho, segurança e manutenção do código. Aqui estão algumas das principais novidades:
@@ -26,21 +33,3 @@ switch (obj) {
     case null -> System.out.println("É nulo");
     default -> System.out.println("Tipo desconhecido");
 }
-```
-
-### 1.6 **JEP 411: Depreciação do Security Manager**
-O Security Manager foi depreciado devido à sua baixa adoção e à existência de abordagens mais modernas para segurança de aplicações Java.
-
-### 1.7 **JEP 415: Context-Specific Deserialization Filters**
-Melhora a segurança da desserialização, permitindo filtros específicos de contexto para evitar vulnerabilidades.
-
-## 2. **Remoção de Recursos**
-
-- **Remoção do RMI Activation System (JEP 407)**: O sistema de ativação do RMI foi removido devido à sua baixa utilização.
-- **Remoção do Experimental AOT e JIT Compiler (JEP 410)**: Recursos experimentais relacionados à compilação AOT e JIT foram removidos por falta de adoção.
-
-## 3. **Conclusão**
-
-Java 17 traz melhorias significativas em desempenho, segurança e manutenção, além de reforçar a tendência de modularização e encapsulamento do JDK. Como uma versão LTS, ele se torna a escolha ideal para aplicações corporativas e de longa duração.
-
-Se você ainda está utilizando versões mais antigas do Java, agora é um excelente momento para considerar a atualização para Java 17!
