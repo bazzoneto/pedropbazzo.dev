@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="container text-center">
         <footer className="align-items-center text-center">
           <div className="py-3 align-items-center">
-            <S.FooterText>All rights reserved © deploy de sexta {year}</S.FooterText>
+            <S.FooterText>All rights reserved © pedropbazzo {year}</S.FooterText>
             <div className="align-items-center pt-3 pt-md-0">
               <SocialLinks hideStyle />
             </div>
