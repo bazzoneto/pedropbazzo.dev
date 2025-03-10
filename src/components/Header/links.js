@@ -8,10 +8,6 @@ const links = [
     url: '/posts'
   },
   {
-    label: 'Talks',
-    url: '/talks'
-  },
-  {
     label: 'Sobre mim',
     url: '/about'
   },
