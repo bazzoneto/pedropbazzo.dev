@@ -17,9 +17,7 @@ const About = () => (
       </Text>
       <Text>
         💬 Converse comigo sobre: 
-        Clean Architecture, Functional Programming, Vavr, Arrow Kt, Kotlin, Java, 
-        Reactive Stack, SOLID, Spring Boot, Spring Cloud, Web Development, 
-        JavaScript, VueJs, React, SSR, NodeJS, DevOps, AWS, Maven, Gradle, etc..
+        Backend, Java, AWS e Carreira
       </Text>
       
       <Quote>
