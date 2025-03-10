@@ -2,7 +2,7 @@
 title: "Entendendo os papéis no time ágil"
 date: "2025-03-10"
 tags: ["Programação", "Agil", "SCRUM", "Kanban"]
-description: "Este post está relacionado a qualquer área onde você possa melhorar seu tempo no trabalho e estudos."
+description: "Já parou para pensar como um simples desalinhamento entre equipes pode transformar o desenvolvimento de um projeto em um pesadelo?"
 ---
 
 # 🚀 Navegação Rápida: Entendendo os papéis no time ágil
