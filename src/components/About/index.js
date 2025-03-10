@@ -17,7 +17,7 @@ const About = () => (
       </Text>
       <Text>
         💬 Converse comigo sobre: 
-        Backend, Java, AWS e Carreira
+        Backend, Java, AWS e Carreira...
       </Text>
       
       <Quote>
