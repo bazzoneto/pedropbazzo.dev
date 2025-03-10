@@ -1,5 +1,5 @@
 ---
-title: "Hacks de Produtividade para Desenvolvedores: Domine a Arte de Fazer Mais em Menos Tempo"
+title: "🎭 Hacks de Produtividade para Desenvolvedores: Domine a Arte de Fazer Mais em Menos Tempo"
 date: "2025-03-10"
 tags: ["Hacks", "Programação"]
 description: "Este post está relacionado a qualquer area onde você possa melhorar seu tempo no trabalho e estudos."

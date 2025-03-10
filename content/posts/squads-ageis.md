@@ -1,5 +1,5 @@
 ---
-title: "Principais Rituais e Metodologias em squads ageis"
+title: "📊 Principais Rituais e Metodologias em squads ageis"
 date: "2025-03-10"
 description: "Descubra os principais rituais e metodologias ágeis para squads e como aplicá-los no dia a dia."
 tags: [agilidade, squads, metodologias ágeis, desenvolvimento]
